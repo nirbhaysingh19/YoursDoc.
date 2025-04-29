@@ -33,3 +33,6 @@ function DoctorSignup() {
     </form>
   );
 }
+
+// At the end of DoctorSignup.js
+export default DoctorSignup;  // ⬅️ Add this line
