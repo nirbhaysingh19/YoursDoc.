@@ -11,7 +11,11 @@ import About from './Components/About';
 import Doctors from './Components/Doctors';
 import Book from './Components/Book';
 import Reviews from './Components/Reviews';
-import Login from './Components/Login';
+import RoleSelection from './Components/RoleSelection';
+import DoctorSignup from './Components/DoctorSignup';
+import DoctorSignin from './Components/DoctorSignin';
+import PatientSignup from './Components/PatientSignup';
+import PatientSignin from './Components/PatientSignin';
 
 function MainApp() {
   return (
@@ -31,10 +35,20 @@ function MainApp() {
 
 function App() {
   return (
-    <Router>
+   <Router>
       <Routes>
-        <Route path="/" element={<Login />} />
-        <Route path="/home" element={<MainApp />} />
+        <Route path="/" element={<RoleSelection />} />
+        
+        {/* Doctor Routes */}
+        <Route path="/doctor/signin" element={<DoctorSignin />} />
+        <Route path="/doctor/signup" element={<DoctorSignup />} />
+        
+        {/* Patient Routes */}
+        <Route path="/patient/signin" element={<PatientSignin />} />
+        <Route path="/patient/signup" element={<PatientSignup />} />
+
+        {/* Protected Main App */}
+        <Route path="/app/*" element={<MainApp />} />
       </Routes>
     </Router>
   );
