@@ -15,3 +15,5 @@ function Patientignin() {
     </form>
   );
 }
+
+export default PatientSignin;
