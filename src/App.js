@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes, Navigate } from 'react-router-dom';
 import './App.css';
 import './Components/style.css';
 import Header from './Components/Header';
@@ -35,20 +35,26 @@ function MainApp() {
 
 function App() {
   return (
-   <Router>
+    <Router>
       <Routes>
+        {/* Public Routes */}
         <Route path="/" element={<RoleSelection />} />
-        
-        {/* Doctor Routes */}
         <Route path="/doctor/signin" element={<DoctorSignin />} />
         <Route path="/doctor/signup" element={<DoctorSignup />} />
-        
-        {/* Patient Routes */}
         <Route path="/patient/signin" element={<PatientSignin />} />
         <Route path="/patient/signup" element={<PatientSignup />} />
 
-        {/* Protected Main App */}
-        <Route path="/app/*" element={<MainApp />} />
+        {/* Protected Route (Main App) */}
+        <Route 
+          path="/app/*" 
+          element={
+            // Add authentication check here (example: replace `true` with your auth logic)
+            true ? <MainApp /> : <Navigate to="/" replace />
+          } 
+        />
+
+        {/* Fallback Redirect */}
+        <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
   );
