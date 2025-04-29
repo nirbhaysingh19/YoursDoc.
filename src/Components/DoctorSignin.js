@@ -15,3 +15,4 @@ function DoctorSignin() {
     </form>
   );
 }
+export default DoctorSignin;
