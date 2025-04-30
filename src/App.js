@@ -34,4 +34,23 @@ function App() {
   );
 }
 
+<<<<<<< HEAD
+=======
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<RoleSelection />} />
+        <Route path="/doctor/signin" element={<DoctorSignin />} />
+        <Route path="/doctor/signup" element={<DoctorSignup />} />
+        <Route path="/patient/signin" element={<PatientSignin />} />
+        <Route path="/patient/signup" element={<PatientSignup />} />
+        <Route path="/app/*" element={<MainApp />} />
+        <Route path="*" element={<Navigate to="/" replace />} />
+      </Routes>
+    </Router>
+  );
+}
+
+>>>>>>> a4e09589bd44d21adf55376827ed81548853d332
 export default App;
