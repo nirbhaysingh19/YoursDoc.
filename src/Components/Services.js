@@ -26,7 +26,7 @@ const Service = () => {
           <i className="fas fa-ambulance"></i>
           <h3>24/7 Ambulance</h3>
           <p>24/7 Ambulance Services for Your Emergencies</p>
-          <a href="#" className="btn">
+          <a href="https://medulance.com/ambulance-service-in-lucknow" target="_blank" rel="noopener noreferrer" className="btn">
             Book <span className="fas fa-chevron-right"></span>
           </a>
         </div>
@@ -55,8 +55,8 @@ const Service = () => {
         <div className="box">
           <i className="fas fa-procedures"></i>
           <h3>Bed Facility</h3>
-          <p>Providing a home-like envirnment with premium bed facilities with premium bed facilities for every patient.</p>
-          <a href="#" className="btn">
+          <p>Providing a home-like environment with premium bed facilities for every patient.</p>
+          <a href="https://www.healthyjeenasikho.com/lucknow?srsltid=AfmBOoqjoJM4K1KtWLgrOp0JJTAkH98lo6Xl4j2xTHGiGxaeF8pNAWXv" target="_blank" rel="noopener noreferrer" className="btn">
             Learn More <span className="fas fa-chevron-right"></span>
           </a>
         </div>

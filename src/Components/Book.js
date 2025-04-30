@@ -2,17 +2,20 @@ import React, { useState } from 'react';
 import './style.css';  // Ensure to import your CSS file
 
 const Book = () => {
-  // React state to store form values
+  // React state to store form values and popup visibility
   const [formData, setFormData] = useState({
     name: '',
     phone: '',
     email: '',
     date: ''
   });
+  const [popupVisible, setPopupVisible] = useState(false);
 
   // Handle input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
+    // Prevent input over 10 digits for phone
+    if (name === 'phone' && value.length > 10) return;
     setFormData({
       ...formData,
       [name]: value
@@ -22,8 +25,19 @@ const Book = () => {
   // Handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Logic for form submission (e.g., sending data to a server)
+
+    // Validate 10-digit phone number
+    if (!/^\d{10}$/.test(formData.phone)) {
+      alert('Please enter a valid 10-digit phone number.');
+      return;
+    }
+
     console.log('Form submitted', formData);
+    setPopupVisible(true);  // Show the popup
+    setTimeout(() => setPopupVisible(false), 3000);  // Hide after 3 seconds
+
+    // Optionally reset form:
+    // setFormData({ name: '', phone: '', email: '', date: '' });
   };
 
   return (
@@ -47,15 +61,19 @@ const Book = () => {
             name="name"
             value={formData.name}
             onChange={handleChange}
+            required
           />
           
           <input
-            type="number"
+            type="tel"
             placeholder="Your number"
             className="book"
             name="phone"
             value={formData.phone}
             onChange={handleChange}
+            pattern="\d{10}"
+            maxLength="10"
+            required
           />
           
           <input
@@ -65,6 +83,7 @@ const Book = () => {
             name="email"
             value={formData.email}
             onChange={handleChange}
+            required
           />
           
           <input
@@ -73,6 +92,7 @@ const Book = () => {
             name="date"
             value={formData.date}
             onChange={handleChange}
+            required
           />
           
           <input
@@ -82,6 +102,13 @@ const Book = () => {
           />
         </form>
       </div>
+
+      {/* Popup for appointment booked */}
+      {popupVisible && (
+        <div className="popup">
+          <p>Appointment Booked!</p>
+        </div>
+      )}
     </section>
   );
 };
