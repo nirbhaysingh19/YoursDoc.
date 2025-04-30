@@ -37,23 +37,12 @@ function App() {
   return (
     <Router>
       <Routes>
-        {/* Public Routes */}
         <Route path="/" element={<RoleSelection />} />
         <Route path="/doctor/signin" element={<DoctorSignin />} />
         <Route path="/doctor/signup" element={<DoctorSignup />} />
         <Route path="/patient/signin" element={<PatientSignin />} />
         <Route path="/patient/signup" element={<PatientSignup />} />
-
-        {/* Protected Route (Main App) */}
-        <Route 
-          path="/app/*" 
-          element={
-            // Add authentication check here (example: replace `true` with your auth logic)
-            true ? <MainApp /> : <Navigate to="/" replace />
-          } 
-        />
-
-        {/* Fallback Redirect */}
+        <Route path="/app/*" element={<MainApp />} />
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
     </Router>
